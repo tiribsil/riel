@@ -1,2 +1,2 @@
 # riel
-Aplicação em Python Web de um sistema de Registro Inicial de Exames Laboratoriais.
+Projeto de Engenharia de Software para UFSCar :)
