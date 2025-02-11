@@ -1,6 +1,10 @@
+import itertools
+
 class ExameLaboratorial:
-    def __init__(self, id, tipo, descricao):
-        self.__id = id
+    id_iter = itertools.count()
+
+    def __init__(self, tipo, descricao):
+        self.__id = next(self.id_iter)
         self._tipo = tipo
         self._descricao = descricao
 
@@ -22,3 +26,17 @@ class Paciente:
     def __str__(self):
         return f"Paciente {self.__cpf} - Nome: {self._nome}, Data de Nascimento: {self._data_nascimento}"
 
+class RegistroExameLaboratorial:
+    id_iter = itertools.count()
+
+    def __init__(self, exame, paciente, data_criacao):
+        self.__id = next(self.id_iter)
+        self.__exame = exame
+        self.__paciente = paciente
+        self.__data_criacao = data_criacao
+
+    def __str__(self):
+        return (f"Registro de Exame Laboratorial {self.__id}:\n"
+                f"  - {self.__exame}\n"
+                f"  - {self.__paciente}\n"
+                f"  - Data de Criação: {self.__data_criacao}")
