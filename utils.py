@@ -84,10 +84,6 @@ class FilaDeEspera:
     def __len__(self):
         return len(self.__fila)
 
-class Registrador:
-    def registrar(self, registro):
-        if not isinstance(registro, RegistroExameLaboratorial): return False
-
 
 exames = [
     ExameLaboratorial("Hemograma", "Análise de células sanguíneas"),
@@ -124,3 +120,38 @@ pacientes = [
     Paciente("999.000.111-22", "Diego Araújo", "08/08/1986"),
     Paciente("000.111.222-33", "Larissa Cardoso", "27/02/2002")
 ]
+
+class Registrador:
+    def __init__(self):
+        self.__fila = FilaDeEspera()
+        # __em_coleta = ExamesEmColeta()
+        # __coletados = ExamesColetados()
+
+    def limpar(self):
+        self.__fila.limpar()
+        #self.__em_coleta.limpar()
+        #self.__coletados.limpar()
+
+    def registrar(self, id_exame, cpf_paciente):
+        try: paciente = next(p for p in pacientes if p.get_cpf() == cpf_paciente)
+        except StopIteration: return False
+        print(f"Debug: Searching for exame with id_exame = {id_exame}")  # Print the ID being searched
+        print("Debug: Available exame IDs:")  # Print all available exame IDs
+        for e in exames:
+            print(f"Exame ID: {e.get_id()}")
+        exame = next(e for e in exames if e.get_id() == id_exame)
+
+        registro = RegistroExameLaboratorial(exame, paciente, datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
+        self.__fila.inserir(registro)
+        return True
+
+    def exibir_fila_de_espera(self):
+        return str(self.__fila)
+
+    def exibir_exames_coletados(self):
+        return 'str(self.__coletados)'
+
+    def exibir_exames_em_coleta(self):
+        return 'str(self.__em_coleta)'
+
+

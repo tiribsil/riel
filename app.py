@@ -4,9 +4,7 @@ from utils import *
 
 app = Flask(__name__)
 
-fila_de_espera = FilaDeEspera()
-#exames_em_coleta = ExamesEmColeta()
-#exames_coletados = ExamesColetados()
+registrador = Registrador()
 
 @app.route('/')
 def index():
@@ -15,18 +13,9 @@ def index():
 @app.route('/registrar_exame', methods=['GET', 'POST'])
 def registrar_exame():
     if request.method == 'POST':
-        idx_exame = int(request.form['id_exame'])
-        idx_paciente = int(request.form['cpf'])
+        if registrador.registrar(int(request.form['id_exame']), request.form['cpf']): return render_template('inserido.html')
+        else: return render_template('cpf_invalido.html')
 
-        exame = exames[idx_exame]
-        paciente = pacientes[idx_paciente]
-
-        registro = RegistroExameLaboratorial(exame, paciente, datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
-        fila_de_espera.inserir(registro)
-
-        return redirect(url_for('index'))
-
-    # Passar as listas para o template
     return render_template('registrar_exame.html', exames=exames, pacientes=pacientes)
 
 
@@ -70,8 +59,7 @@ def registrar_exame():
 
 @app.route('/fila_de_espera')
 def visualizar_fila_espera():
-    registros_fila_espera = str(fila_de_espera)
-    return render_template('fila_de_espera.html', fila_espera=registros_fila_espera)
+    return render_template('fila_de_espera.html', fila_espera=registrador.exibir_fila_de_espera())
 
 
 @app.route('/exames_em_coleta')
@@ -82,9 +70,12 @@ def visualizar_fila_espera():
 
 @app.route('/exames_coletados')
 def visualizar_exames_coletados():
-    registros_coletados = 'str(exames_coletados)'
-    return render_template('exames_coletados.html', coletados=registros_coletados)
+    return render_template('exames_coletados.html', coletados=registrador.exibir_exames_coletados())
 
+@app.route('/limpar')
+def limpar():
+    registrador.limpar()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

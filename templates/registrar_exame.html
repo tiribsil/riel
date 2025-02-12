@@ -6,16 +6,12 @@
         <label for="id_exame">Exame:</label>
         <select id="id_exame" name="id_exame" required>
             {% for exame in exames %}
-                <option value="{{ loop.index0 }}">{{ exame.get_tipo() }}</option>
+                <option value="{{ exame.get_id() }}">{{ exame.get_tipo() }}</option>
             {% endfor %}
         </select>
 
-        <label for="cpf">Paciente:</label>
-        <select id="cpf" name="cpf" required>
-            {% for paciente in pacientes %}
-                <option value="{{ loop.index0 }}">{{ paciente.get_nome() }}</option>
-            {% endfor %}
-        </select>
+        <label for="cpf">CPF do Paciente:</label>
+        <input type="text" id="cpf" name="cpf" required>
 
         <button type="submit">Registrar</button>
     </form>
