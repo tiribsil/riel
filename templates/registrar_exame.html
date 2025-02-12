@@ -5,6 +5,7 @@
     <form method="POST">
         <label for="id_exame">Exame:</label>
         <select id="id_exame" name="id_exame" required>
+            <option value="" selected disabled>Selecione um exame</option>
             {% for exame in exames %}
                 <option value="{{ exame.get_id() }}">{{ exame.get_tipo() }}</option>
             {% endfor %}
