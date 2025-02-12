@@ -36,10 +36,16 @@ class Paciente:
         return f"Paciente {self.__cpf} - Nome: {self._nome}, Data de Nascimento: {self._data_nascimento}"
 
 class RegistroExameLaboratorial:
-    id_iter = itertools.count()
+    if not os.path.exists('ultimo_id_registro.txt'):
+        with open('ultimo_id_registro.txt', 'w') as f:
+            f.write('0')
+    with open('ultimo_id_registro.txt', 'r') as f:
+        id_iter = itertools.count(start=int(f.read().strip()))
 
     def __init__(self, exame, paciente, data_criacao):
         self.__id = next(self.id_iter)
+        with open('ultimo_id_registro.txt', 'w') as f:
+            f.write(str(self.__id + 1))
         self.__exame = exame
         self.__paciente = paciente
         self.__data_criacao = data_criacao
@@ -153,5 +159,4 @@ class Registrador:
 
     def exibir_exames_em_coleta(self):
         return 'str(self.__em_coleta)'
-
 
