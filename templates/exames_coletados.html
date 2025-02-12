@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Exams Collected</h2>
+    <ul>
+        {% for item in exams %}
+            <li>Exam ID: {{ item.exam_id }}, Patient ID: {{ item.patient_id }}, Timestamp: {{ item.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

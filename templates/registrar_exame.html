@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Register Exam</h2>
+    <form method="POST">
+        <label for="exam_id">Exam ID:</label>
+        <input type="text" id="exam_id" name="exam_id" required>
+        <label for="patient_id">Patient ID:</label>
+        <input type="text" id="patient_id" name="patient_id" required>
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

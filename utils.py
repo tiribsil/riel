@@ -51,7 +51,7 @@ class FilaDeEspera:
         with open('backup_fila.bak', 'rb') as arquivo_backup:
             self.__fila = pickle.load(arquivo_backup)
 
-    def adicionar(self, registro):
+    def inserir(self, registro):
         if not isinstance(registro, RegistroExameLaboratorial): return False
         self.__fila.append(registro)
         self.__salvar()

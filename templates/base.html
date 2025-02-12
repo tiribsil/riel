@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIEL</title>
+    <link rel="stylesheet" href="/">
+</head>
+<body>
+    <header>
+        <h1>Registro Inicial de Exames Laboratoriais</h1>
+        <nav>
+            <ul>
+                <li><a href="/registrar_exame">Registrar Exame</a></li>
+                <li><a href="/chamar_paciente">Chamar Paciente</a></li>
+                <li><a href="/dar_alta">Dar Alta</a></li>
+                <li><a href="/quadro_geral">Quadro Geral</a></li>
+                <li><a href="/fila_de_espera">Fila de Espera</a></li>
+                <li><a href="/exames_em_coleta">Exames em Coleta</a></li>
+                <li><a href="/exames_coletados">Exames Coletados</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
