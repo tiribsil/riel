@@ -1,23 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>All Lists</h2>
-    <h3>Waiting Queue</h3>
+    <h2>Quadro Geral</h2>
+    <h3>Fila de Espera</h3>
     <ul>
-        {% for item in data.waiting_queue %}
-            <li>Exam ID: {{ item.exam_id }}, Patient ID: {{ item.patient_id }}, Timestamp: {{ item.timestamp }}</li>
-        {% endfor %}
+        <li>{{ fila_de_espera }}</li>
     </ul>
-    <h3>Exams in Progress</h3>
+    <h3>Exames em Coleta</h3>
     <ul>
-        {% for item in data.exams_in_progress %}
-            <li>Exam ID: {{ item.exam_id }}, Patient ID: {{ item.patient_id }}, Timestamp: {{ item.timestamp }}</li>
-        {% endfor %}
+        <li>{{ em_coleta }}</li>
     </ul>
-    <h3>Exams Collected</h3>
+    <h3>Exames Coletados</h3>
     <ul>
-        {% for item in data.collected_exams %}
-            <li>Exam ID: {{ item.exam_id }}, Patient ID: {{ item.patient_id }}, Timestamp: {{ item.timestamp }}</li>
-        {% endfor %}
+        <li>{{ coletados }}</li>
     </ul>
 {% endblock %}

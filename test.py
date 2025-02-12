@@ -58,15 +58,15 @@ class TestFilaDeEspera(unittest.TestCase):
         if os.path.exists('backup_fila.bak'):
             os.remove('backup_fila.bak')
 
-    def test_adicionar_registro_fila_vazia(self):
-        self.assertTrue(self.fila.adicionar(self.registros[1]))
+    def test_inserir_registro_fila_vazia(self):
+        self.assertTrue(self.fila.inserir(self.registros[1]))
         self.assertEqual(str(self.fila), str(self.registros[1]))
-        self.assertTrue(self.fila.adicionar(self.registros[4]))
+        self.assertTrue(self.fila.inserir(self.registros[4]))
         self.assertEqual(str(self.fila), str(self.registros[1]) + '\n' + str(self.registros[4]))
 
     def test_remover_registro(self):
-        self.fila.adicionar(self.registros[5])
-        self.fila.adicionar(self.registros[7])
+        self.fila.inserir(self.registros[5])
+        self.fila.inserir(self.registros[7])
         self.assertEqual(self.fila.remover(), self.registros[5])
         self.assertEqual(len(self.fila), 1)
 
@@ -75,7 +75,7 @@ class TestFilaDeEspera(unittest.TestCase):
         self.assertIsNone(registro_removido)
 
     def test_carregar_fila(self):
-        self.fila.adicionar(self.registros[5])
+        self.fila.inserir(self.registros[5])
         nova_fila = FilaDeEspera()
         self.assertEqual(len(nova_fila), 1)
         self.assertEqual(str(nova_fila.remover()), str(self.registros[5]))

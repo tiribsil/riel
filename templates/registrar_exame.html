@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Register Exam</h2>
+    <h2>Registrar Exame Laboratorial</h2>
     <form method="POST">
-        <label for="exam_id">Exam ID:</label>
-        <input type="text" id="exam_id" name="exam_id" required>
-        <label for="patient_id">Patient ID:</label>
-        <input type="text" id="patient_id" name="patient_id" required>
-        <button type="submit">Register</button>
+        <label for="id_exame">Exame:</label>
+        <select id="id_exame" name="id_exame" required>
+            {% for exame in exames %}
+                <option value="{{ loop.index0 }}">{{ exame.get_tipo() }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="cpf">Paciente:</label>
+        <select id="cpf" name="cpf" required>
+            {% for paciente in pacientes %}
+                <option value="{{ loop.index0 }}">{{ paciente.get_nome() }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Registrar</button>
     </form>
 {% endblock %}

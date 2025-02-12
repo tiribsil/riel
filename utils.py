@@ -14,6 +14,9 @@ class ExameLaboratorial:
     def get_id(self):
         return self.__id
 
+    def get_tipo(self):
+        return self._tipo
+
     def __str__(self):
         return f"Exame {self.__id} - Tipo: {self._tipo}, Descrição: {self._descricao}"
 
@@ -25,6 +28,9 @@ class Paciente:
 
     def get_cpf(self):
         return self.__cpf
+
+    def get_nome(self):
+        return self._nome
 
     def __str__(self):
         return f"Paciente {self.__cpf} - Nome: {self._nome}, Data de Nascimento: {self._data_nascimento}"
@@ -77,3 +83,44 @@ class FilaDeEspera:
 
     def __len__(self):
         return len(self.__fila)
+
+class Registrador:
+    def registrar(self, registro):
+        if not isinstance(registro, RegistroExameLaboratorial): return False
+
+
+exames = [
+    ExameLaboratorial("Hemograma", "Análise de células sanguíneas"),
+    ExameLaboratorial("Colesterol Total", "Medição do colesterol no sangue"),
+    ExameLaboratorial("Glicemia", "Medição da glicose no sangue"),
+    ExameLaboratorial("Urina Tipo I", "Análise física e química da urina"),
+    ExameLaboratorial("TSH", "Teste de função tireoidiana"),
+    ExameLaboratorial("Creatinina", "Avaliação da função renal"),
+    ExameLaboratorial("TGO/AST", "Enzima hepática"),
+    ExameLaboratorial("TGP/ALT", "Enzima hepática"),
+    ExameLaboratorial("PCR", "Proteína C Reativa - marcador de inflamação"),
+    ExameLaboratorial("Vitamina D", "Níveis de vitamina D no sangue")
+]
+
+pacientes = [
+    Paciente("123.456.789-00", "João Silva", "15/03/1985"),
+    Paciente("234.567.890-11", "Maria Oliveira", "22/07/1990"),
+    Paciente("345.678.901-22", "Carlos Souza", "10/11/1978"),
+    Paciente("456.789.012-33", "Ana Costa", "05/05/2000"),
+    Paciente("567.890.123-44", "Pedro Santos", "18/09/1982"),
+    Paciente("678.901.234-55", "Fernanda Lima", "30/01/1995"),
+    Paciente("789.012.345-66", "Ricardo Pereira", "12/12/1970"),
+    Paciente("890.123.456-77", "Juliana Alves", "25/06/1988"),
+    Paciente("901.234.567-88", "Marcos Rocha", "14/08/1992"),
+    Paciente("012.345.678-99", "Patrícia Gomes", "03/04/1980"),
+    Paciente("111.222.333-44", "Lucas Martins", "19/10/2005"),
+    Paciente("222.333.444-55", "Camila Ribeiro", "07/02/1998"),
+    Paciente("333.444.555-66", "Gustavo Ferreira", "21/11/1975"),
+    Paciente("444.555.666-77", "Amanda Barbosa", "09/07/1987"),
+    Paciente("555.666.777-88", "Roberto Carvalho", "28/03/1993"),
+    Paciente("666.777.888-99", "Tatiane Nunes", "16/05/1984"),
+    Paciente("777.888.999-00", "Bruno Mendes", "23/09/1979"),
+    Paciente("888.999.000-11", "Vanessa Castro", "01/12/1991"),
+    Paciente("999.000.111-22", "Diego Araújo", "08/08/1986"),
+    Paciente("000.111.222-33", "Larissa Cardoso", "27/02/2002")
+]

@@ -15,15 +15,19 @@ def index():
 @app.route('/registrar_exame', methods=['GET', 'POST'])
 def registrar_exame():
     if request.method == 'POST':
-        id_exame = request.form['id_exame']
-        cpf_paciente = request.form['cpf_paciente']
+        idx_exame = int(request.form['id_exame'])
+        idx_paciente = int(request.form['cpf'])
 
-        registro = RegistroExameLaboratorial(id_exame, cpf_paciente, datetime.now())
+        exame = exames[idx_exame]
+        paciente = pacientes[idx_paciente]
 
+        registro = RegistroExameLaboratorial(exame, paciente, datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
         fila_de_espera.inserir(registro)
 
         return redirect(url_for('index'))
-    return render_template('registrar_exame.html')
+
+    # Passar as listas para o template
+    return render_template('registrar_exame.html', exames=exames, pacientes=pacientes)
 
 
 @app.route('/chamar_paciente')

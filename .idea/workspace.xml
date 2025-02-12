@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddf7e707-1ae6-438a-a5d1-077d66a82ff4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/riel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/riel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup_fila.bak" beforeDir="false" afterPath="$PROJECT_DIR$/backup_fila.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chamar_paciente.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chamar_paciente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dar_alta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dar_alta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/exames_coletados.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/exames_coletados.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/exames_em_coleta.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/exames_em_coleta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fila_de_espera.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fila_de_espera.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/quadro_geral.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quadro_geral.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registrar_exame.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registrar_exame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +64,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.base.html.executor": "Run",
+    "JavaScript Debug.exames_coletados.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.registrar_exame.html.executor": "Run",
     "Python tests.Python tests in test.py.executor": "Run",
@@ -63,14 +73,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "ti__branch",
-    "last_opened_file_path": "C:/Users/nowon/Documents/UFSCar/ES/riel",
+    "last_opened_file_path": "C:/Users/ti/Documents/ufscar/ES/riel",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -224,6 +234,8 @@
       <workItem from="1739279862059" duration="659000" />
       <workItem from="1739284360572" duration="1751000" />
       <workItem from="1739358339134" duration="3564000" />
+      <workItem from="1739366713096" duration="494000" />
+      <workItem from="1739369512375" duration="6890000" />
     </task>
     <servers />
   </component>
@@ -233,6 +245,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/riel$utils.coverage" NAME="utils Coverage Results" MODIFIED="1739319353623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/riel$.coverage" NAME=" Coverage Results" MODIFIED="1739321683641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739362272851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739381243413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
