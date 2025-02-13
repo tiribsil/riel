@@ -160,3 +160,6 @@ class Registrador:
     def exibir_exames_em_coleta(self):
         return 'str(self.__em_coleta)'
 
+    def exibir_quadro_geral(self):
+        return 'Fila de Espera\n' + str(self.__fila) + '\nExames em Coleta\n' + 'str(self.__coletados)' + '\nExames Coletados\n' + 'str(self.__em_coleta)'
+

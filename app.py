@@ -46,15 +46,9 @@ def registrar_exame():
 
 
 @app.route('/quadro_geral')
-# def visualizar_todos():
-    # registros_fila_espera = fila_de_espera.obter_todos()
-    # registros_em_coleta = exames_em_coleta.obter_todos()
-    # registros_coletados = exames_coletados.obter_todos()
-    #
-    # return render_template('visualizar_todos.html',
-    #                        fila_espera=registros_fila_espera,
-    #                        em_coleta=registros_em_coleta,
-    #                        coletados=registros_coletados)
+def visualizar_todos():
+    return render_template('quadro_geral.html',
+                            quadro=registrador.exibir_quadro_geral())
 
 
 @app.route('/fila_de_espera')
@@ -63,7 +57,7 @@ def visualizar_fila_espera():
 
 @app.route('/exames_em_coleta')
 def visualizar_exames_em_coleta():
-    return render_template('visualizar_exames_em_coleta.html', em_coleta=registrador.exibir_exames_em_coleta())
+    return render_template('exames_em_coleta.html', em_coleta=registrador.exibir_exames_em_coleta())
 
 @app.route('/exames_coletados')
 def visualizar_exames_coletados():
