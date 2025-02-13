@@ -3,8 +3,8 @@
 {% block content %}
     <h2>Chamar Paciente</h2>
     {% if patient %}
-        <p>Patient {{ patient.patient_id }} called for exam {{ patient.exam_id }}.</p>
+        <p>Paciente {{ patient.get_paciente().get_cpf() }} chamado para o exame {{ patient.get_exame() }}.</p>
     {% else %}
-        <p>No patients in the waiting queue.</p>
+        <p>Não há pacientes na fila de espera.</p>
     {% endif %}
 {% endblock %}

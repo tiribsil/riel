@@ -3,8 +3,6 @@ import pickle
 import itertools
 from datetime import datetime
 
-import self as self
-
 
 class ExameLaboratorial:
     id_iter = itertools.count()
@@ -16,6 +14,9 @@ class ExameLaboratorial:
 
     def get_id(self):
         return self.__id
+
+    def get_tipo(self):
+        return self._tipo
 
     def __str__(self):
         return f"Exame {self.__id} - Tipo: {self._tipo}, Descrição: {self._descricao}"
@@ -41,14 +42,17 @@ class RegistroExameLaboratorial:
         self.__paciente = paciente
         self.__data_criacao = data_criacao
 
+    def get_paciente(self):
+        return self.__paciente
+
+    def get_exame(self):
+        return self.__exame
+
     def __str__(self):
         return (f"Registro de Exame Laboratorial {self.__id}:\n"
                 f"  - {self.__exame}\n"
                 f"  - {self.__paciente}\n"
                 f"  - Data de Criação: {self.__data_criacao}")
-
-    def get_paciente(self):
-        return self.__paciente
 
 class FilaDeEspera:
     def __init__(self):
@@ -96,18 +100,17 @@ class ListaExamesRealizados:
         return True
 
     def imprimir(self):
-        tamanho = os.path.getsize(self.__arquivo_historico)
-        if tamanho == 0:
-            print("Nenhum exame registrado ainda")
-            return
+        if not os.path.exists(self.__arquivo_historico):
+            return "Nenhum exame registrado ainda"
 
-        with open(self.__arquivo_historico, 'r') as arquivo:
+        with open(self.__arquivo_historico, 'r+') as arquivo:
             conteudo = arquivo.read()
             if len(conteudo) == 0:
-                print("Nenhum exame registrado ainda")
+                arquivo.close()
+                return "Nenhum exame registrado ainda"
             else:
-                print(conteudo)
-        arquivo.close()
+                arquivo.close()
+                return conteudo
 
     def limpar(self):
         with open(self.__arquivo_historico, 'w'):
@@ -134,13 +137,14 @@ class ListaExamesSendoRealizados:
     def remover(self, cpf):
         if not self.__lista: return None
 
-        indice = 0
+        indice = -1
         for i, registro in enumerate(self.__lista):
             paciente = registro.get_paciente()
             if paciente.get_cpf() == cpf:
                 indice = i
                 break
 
+        if indice == -1: return False
         registro_removido = self.__lista.pop(indice)
         self.__salvar()
         return registro_removido
@@ -154,6 +158,8 @@ class ListaExamesSendoRealizados:
             return "lista de exames sendo realizados vazia."
         return "\n".join(str(registro) for registro in self.__lista)
 
+    def __len__(self):
+        return len(self.__lista)
 
 class Registrador:
     def __init__(self):
@@ -176,17 +182,23 @@ class Registrador:
         exame = next(e for e in exames if e.get_id() == id_exame)
 
         registro = RegistroExameLaboratorial(exame, paciente, datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
-        self.__fila.inserir(registro)
+        self.__fila.adicionar(registro)
         return True
 
     def exibir_fila_de_espera(self):
         return str(self.__fila)
 
     def exibir_exames_coletados(self):
-        return 'str(self.__coletados)'
+        return self.__coletados.imprimir()
 
     def exibir_exames_em_coleta(self):
-        return 'str(self.__em_coleta)'
+        return str(self.__em_coleta)
+
+    def remover_fila_espera(self):
+        return self.__fila.remover()
+
+    def inserir_exame_em_coleta(self, registro):
+        self.__em_coleta.adicionar(registro)
 
     def dar_alta(self, cpf):
         registro_removido = self.__em_coleta.remover(cpf)
@@ -233,8 +245,4 @@ registros = [
     RegistroExameLaboratorial(exames[1], pacientes[9], '04/03/2023 09:20:00'),
 ]
 
-sendo_realizados = ListaExamesSendoRealizados()
-registro = registros[0]
-#sendo_realizados.adicionar(registro)
-sendo_realizados.remover('234.567.890-11')
-print(sendo_realizados.__str__())
+

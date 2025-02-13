@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+<!-- dar_alta.html -->
+<form method="POST" action="/dar_alta">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="cpf" required>
+    <button type="submit">Dar Alta</button>
+</form>
 
-{% block content %}
-    <h2>Dar Alta</h2>
-    {% if exam %}
-        <p>Exam {{ exam.exam_id }} for patient {{ exam.patient_id }} completed.</p>
-    {% else %}
-        <p>No exams in progress.</p>
-    {% endif %}
-{% endblock %}
+{% if mensagem %}
+    <p>{{ mensagem }}</p>
+{% endif %}
