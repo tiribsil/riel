@@ -47,6 +47,9 @@ class RegistroExameLaboratorial:
                 f"  - {self.__paciente}\n"
                 f"  - Data de Criação: {self.__data_criacao}")
 
+    def get_paciente(self):
+        return self.__paciente
+
 class FilaDeEspera:
     def __init__(self):
         self.__fila = []
@@ -122,12 +125,19 @@ class ListaExamesSendoRealizados:
         with open('backup_lista.bak', 'wb') as arquivo_backup:
             pickle.dump(self.__lista, arquivo_backup)
 
-    def __remover(self, cpf):
+    def adicionar(self, registro):
+        if not isinstance(registro, RegistroExameLaboratorial): return False
+        self.__lista.append(registro)
+        self.__salvar()
+        return True
+
+    def remover(self, cpf):
         if not self.__lista: return None
 
         indice = 0
         for i, registro in enumerate(self.__lista):
-            if registro.paciente.get_cpf() == cpf:
+            paciente = registro.get_paciente()
+            if paciente.get_cpf() == cpf:
                 indice = i
                 break
 
@@ -223,13 +233,8 @@ registros = [
     RegistroExameLaboratorial(exames[1], pacientes[9], '04/03/2023 09:20:00'),
 ]
 
-realizados = ListaExamesRealizados()
-realizados.limpar()
-
-realizados.inserir(registros[2])
-realizados.inserir(registros[1])
-realizados.inserir(registros[0])
-realizados.limpar()
-realizados.inserir(registros[0])
-
-realizados.imprimir()
+sendo_realizados = ListaExamesSendoRealizados()
+registro = registros[0]
+#sendo_realizados.adicionar(registro)
+sendo_realizados.remover('234.567.890-11')
+print(sendo_realizados.__str__())
