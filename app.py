@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
-from datetime import datetime
-from utils import *
+from flask import Flask, render_template, request, redirect
+from utils import Registrador
 
 app = Flask(__name__)
 
@@ -18,7 +17,7 @@ def registrar_exame():
         else:
             return render_template('cpf_invalido.html')
 
-    return render_template('registrar_exame.html', exames=exames, pacientes=pacientes)
+    return render_template('registrar_exame.html')
 
 
 @app.route('/chamar_paciente')
@@ -42,9 +41,7 @@ def dar_alta():
 
 @app.route('/quadro_geral')
 def visualizar_todos():
-    return render_template('quadro_geral.html',
-                            quadro=registrador.exibir_quadro_geral())
-
+    return render_template('quadro_geral.html', quadro=registrador.exibir_quadro_geral())
 
 @app.route('/fila_de_espera')
 def visualizar_fila_espera():
@@ -61,7 +58,7 @@ def visualizar_exames_coletados():
 @app.route('/limpar')
 def limpar():
     registrador.limpar()
-    return redirect(url_for('index'))
+    return redirect('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

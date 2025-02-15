@@ -2,9 +2,5 @@
 
 {% block content %}
     <h2>Chamar Paciente</h2>
-    {% if patient %}
-        <p>Patient {{ patient.patient_id }} called for exam {{ patient.exam_id }}.</p>
-    {% else %}
-        <p>No patients in the waiting queue.</p>
-    {% endif %}
+    <p>{{ mensagem }}</p>
 {% endblock %}
