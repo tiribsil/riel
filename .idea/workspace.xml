@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddf7e707-1ae6-438a-a5d1-077d66a82ff4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/riel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/riel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivo_historico.hist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup_fila.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup_lista.bak" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ultimo_id_registro.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ultimo_id_registro.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,10 @@
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.registrar_exame.html.executor": "Run",
     "Python tests.Python tests for test.TestExamesColetados.test_inserir_registro.executor": "Run",
+    "Python tests.Python tests for test.TestExamesEmColeta.test_adicionar_registro_lista_vazia.executor": "Run",
+    "Python tests.Python tests for test.TestExamesEmColeta.test_carregar_lista.executor": "Run",
+    "Python tests.Python tests for test.TestExamesEmColeta.test_remover_de_lista_vazia.executor": "Run",
+    "Python tests.Python tests for test.TestExamesEmColeta.test_remover_registro.executor": "Run",
     "Python tests.Python tests for test.TestFilaDeEspera.executor": "Run",
     "Python tests.Python tests in test.py.executor": "Run",
     "Python.app.executor": "Run",
@@ -69,7 +71,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "anderson",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Anderson/Documents/ES/riel",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/ES/riel",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,7 +92,7 @@
       <recent name="C:\Users\nowon\Documents\UFSCar\ES\riel" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in test.py">
+  <component name="RunManager" selected="Python tests.Python tests for test.TestExamesEmColeta.test_adicionar_registro_lista_vazia">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,29 +129,6 @@
       <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="riel" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -218,7 +197,7 @@
       <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test.TestExamesColetados.test_inserir_registro" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestExamesEmColeta.test_adicionar_registro_lista_vazia" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="riel" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -230,11 +209,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestExamesColetados.test_inserir_registro&quot;" />
+      <option name="_new_target" value="&quot;test.TestExamesEmColeta.test_adicionar_registro_lista_vazia&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test.TestFilaDeEspera" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test.TestExamesEmColeta.test_carregar_lista" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="riel" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -246,7 +225,39 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestFilaDeEspera&quot;" />
+      <option name="_new_target" value="&quot;test.TestExamesEmColeta.test_carregar_lista&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test.TestExamesEmColeta.test_remover_de_lista_vazia" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="riel" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.TestExamesEmColeta.test_remover_de_lista_vazia&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test.TestExamesEmColeta.test_remover_registro" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="riel" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test.TestExamesEmColeta.test_remover_registro&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -288,18 +299,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test.TestExamesEmColeta.test_adicionar_registro_lista_vazia" />
+        <item itemvalue="Python tests.Python tests for test.TestExamesEmColeta.test_remover_registro" />
+        <item itemvalue="Python tests.Python tests for test.TestExamesEmColeta.test_remover_de_lista_vazia" />
+        <item itemvalue="Python tests.Python tests for test.TestExamesEmColeta.test_carregar_lista" />
         <item itemvalue="Python tests.Python tests in test.py" />
-        <item itemvalue="Python tests.Python tests for test.TestExamesColetados.test_inserir_registro" />
-        <item itemvalue="Python tests.Python tests for test.TestFilaDeEspera" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
-        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.177" />
+        <option value="bundled-python-sdk-91d3a02ef49d-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.177" />
       </set>
     </attachedChunks>
   </component>
@@ -319,15 +331,27 @@
       <workItem from="1739536801504" duration="1535000" />
       <workItem from="1739630085427" duration="3300000" />
       <workItem from="1739803352155" duration="3001000" />
+      <workItem from="1739812070671" duration="996000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/riel$.coverage" NAME=" Coverage Results" MODIFIED="1739806212670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739645767765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/riel$.coverage" NAME=" Coverage Results" MODIFIED="1739813028117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/riel$utils.coverage" NAME="utils Coverage Results" MODIFIED="1739390628489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739645767765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

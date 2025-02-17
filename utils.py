@@ -2,15 +2,15 @@ import os
 import pickle
 import itertools
 from datetime import datetime
-import mysql.connector
-
-db_connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="kashira",
-    database="laboratorio"
-)
-db_cursor = db_connection.cursor()
+# import mysql.connector
+#
+# db_connection = mysql.connector.connect(
+#     host="localhost",
+#     user="root",
+#     password="kashira",
+#     database="laboratorio"
+# )
+# db_cursor = db_connection.cursor()
 
 class ExameLaboratorial:
     id_iter = itertools.count()
