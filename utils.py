@@ -62,9 +62,6 @@ class RegistroExameLaboratorial:
     def get_paciente(self):
         return self.__paciente
 
-    def get_exame(self):
-        return self.__exame
-
     def __str__(self):
         return (f"Registro de Exame Laboratorial {self.__id}:\n"
                 f"  - {self.__exame}\n"
@@ -101,9 +98,6 @@ class FilaDeEspera:
         if not self.__fila:
             return "Fila de espera vazia."
         return "\n".join(str(registro) for registro in self.__fila)
-
-    def __len__(self):
-        return len(self.__fila)
 
 class ExamesEmColeta:
     def __init__(self):
@@ -145,9 +139,6 @@ class ExamesEmColeta:
         if not self.__lista:
             return "Nenhum exame em coleta."
         return "\n".join(str(registro) for registro in self.__lista)
-
-    def __len__(self):
-        return len(self.__lista)
 
 class ExamesColetados:
     def __init__(self):
