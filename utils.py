@@ -4,6 +4,7 @@ import itertools
 from datetime import datetime
 import mysql.connector
 
+# colocar os dados para conectar ao BD aqui :)
 db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -99,6 +100,9 @@ class FilaDeEspera:
             return "Fila de espera vazia."
         return "\n".join(str(registro) for registro in self.__fila)
 
+    def __len__(self):
+        return len(self.__fila)
+
 class ExamesEmColeta:
     def __init__(self):
         self.__lista = []
@@ -140,6 +144,9 @@ class ExamesEmColeta:
             return "Nenhum exame em coleta."
         return "\n".join(str(registro) for registro in self.__lista)
 
+    def __len__(self):
+        return len(self.__lista)
+
 class ExamesColetados:
     def __init__(self):
         self.__arquivo_historico = 'arquivo_historico.hist'
@@ -167,6 +174,7 @@ class ExamesColetados:
             else:
                 arquivo.close()
                 return conteudo
+
 
 class Registrador:
     def __init__(self):

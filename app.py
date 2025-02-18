@@ -12,10 +12,10 @@ def index():
 @app.route('/registrar_exame', methods=['GET', 'POST'])
 def registrar_exame():
     if request.method == 'POST':
-        if registrador.registrar(int(request.form['id_exame']), request.form['cpf']):
+        if registrador.registrar(request.form['id_exame'], request.form['cpf']):
             return render_template('inserido.html')
         else:
-            return render_template('cpf_invalido.html')
+            return render_template('dado_invalido.html')
 
     return render_template('registrar_exame.html')
 

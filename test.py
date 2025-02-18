@@ -74,15 +74,43 @@ class TestFilaDeEspera(unittest.TestCase):
         registro_removido = self.fila.remover()
         self.assertIsNone(registro_removido)
 
-    def test_carregar_fila(self):
+    def test_insercao_no_final(self):
+        self.fila.inserir(self.registros[0])
+        self.fila.inserir(self.registros[1])
+        self.assertEqual(str(self.fila), str(self.registros[0]) + '\n' + str(self.registros[1]))
+
+    def test_remocao_do_inicio(self):
+        self.fila.inserir(self.registros[0])
+        self.fila.inserir(self.registros[1])
+        registro_removido = self.fila.remover()
+        self.assertEqual(registro_removido, self.registros[0])
+        self.assertEqual(str(self.fila), str(self.registros[1]))
+
+    def test_carregamento_backup(self):
         self.fila.inserir(self.registros[5])
         nova_fila = FilaDeEspera()
         self.assertEqual(len(nova_fila), 1)
         self.assertEqual(str(nova_fila.remover()), str(self.registros[5]))
 
-class TestListaExamesSendoRealizados(unittest.TestCase):
+    def test_backup_atualizado_apos_insercao(self):
+        self.fila.inserir(self.registros[0])
+        with open('backup_fila.bak', 'rb') as arquivo_backup:
+            backup = pickle.load(arquivo_backup)
+        self.assertEqual(str(backup[0]), str(self.registros[0]))
+
+    def test_backup_atualizado_apos_remocao(self):
+        self.fila.inserir(self.registros[0])
+        self.fila.inserir(self.registros[1])
+        self.fila.remover()
+        with open('backup_fila.bak', 'rb') as arquivo_backup:
+            backup = pickle.load(arquivo_backup)
+        self.assertEqual(str(backup[0]), str(self.registros[1]))
+
+class TestListaExamesEmColeta(unittest.TestCase):
     def setUp(self):
-        self.lista = ListaExamesSendoRealizados()
+        self.exames_em_coleta = ExamesEmColeta()
+        self.exames_em_coleta.limpar()
+
         self.exames = [
             ExameLaboratorial("Hemograma", "Análise de células sanguíneas"),
             ExameLaboratorial("Colesterol Total", "Medição do colesterol no sangue"),
@@ -135,40 +163,76 @@ class TestListaExamesSendoRealizados(unittest.TestCase):
             os.remove('backup_lista.bak')
 
     def test_adicionar_registro_lista_vazia(self):
-        self.assertTrue(self.lista.adicionar(self.registros[1]))
-        self.assertEqual(str(self.lista), str(self.registros[1]))
-        self.assertTrue(self.lista.adicionar(self.registros[4]))
-        self.assertEqual(str(self.lista), str(self.registros[1]) + '\n' + str(self.registros[4]))
+        self.assertTrue(self.exames_em_coleta.inserir(self.registros[1]))
+        self.assertEqual(str(self.exames_em_coleta), str(self.registros[1]))
+        self.assertTrue(self.exames_em_coleta.inserir(self.registros[4]))
+        self.assertEqual(str(self.exames_em_coleta), str(self.registros[1]) + '\n' + str(self.registros[4]))
 
     def test_remover_registro(self):
-        indice = random.randint(0, 9)
-        cpf = pacientes[indice].get_cpf()
+        cpf = self.registros[5].get_paciente().get_cpf()
 
-        self.lista.adicionar(self.registros[5])
-        self.lista.adicionar(self.registros[7])
-        self.assertEqual(self.lista.remover(cpf), self.registros[5])
-        self.assertEqual(len(self.lista), 1)
+        self.exames_em_coleta.inserir(self.registros[5])
+        self.exames_em_coleta.inserir(self.registros[7])
+        self.assertEqual(self.exames_em_coleta.remover(cpf), self.registros[5])
+        self.assertEqual(len(self.exames_em_coleta), 1)
 
-    def test_remover_de_lista_vazia(self):
-        indice = random.randint(0, 9)
-        cpf = pacientes[indice].get_cpf()
+    def test_remover_de_exames_em_coleta_vazia(self):
+        cpf = self.pacientes[7].get_cpf()
 
-        registro_removido = self.lista.remover(cpf)
+        registro_removido = self.exames_em_coleta.remover(cpf)
         self.assertIsNone(registro_removido)
 
-    def test_carregar_lista(self):
-        indice = random.randint(0, 9)
-        cpf = pacientes[indice].get_cpf()
+    def test_adicionar_registro_removido_da_fila(self):
+        fila = FilaDeEspera()
+        fila.inserir(self.registros[0])
 
-        self.lista.adicionar(self.registros[5])
-        nova_lista = ListaExamesSendoRealizados()
-        self.assertEqual(len(nova_lista), 1)
-        self.assertEqual(str(nova_lista.remover(cpf)), str(self.registros[5]))
+        registro_removido = fila.remover()
 
+        self.assertTrue(self.exames_em_coleta.inserir(registro_removido))
 
-class TestListaExamesRealizados(unittest.TestCase):
+        self.assertEqual(str(self.exames_em_coleta), str(self.registros[0]))
+
+    def test_adicionar_registro_removido_de_fila_vazia(self):
+        fila = FilaDeEspera()
+
+        registro_removido = fila.remover()
+        self.assertIsNone(registro_removido)
+
+        self.assertFalse(self.exames_em_coleta.inserir(registro_removido))
+        self.assertEqual(str(self.exames_em_coleta), "Nenhum exame em coleta.")
+
+    def test_carregamento_backup(self):
+        self.exames_em_coleta.inserir(self.registros[0])
+
+        nova_exames_em_coleta_exames = ExamesEmColeta()
+
+        self.assertEqual(len(nova_exames_em_coleta_exames), 1)
+        self.assertEqual(str(nova_exames_em_coleta_exames), str(self.registros[0]))
+
+    def test_backup_atualizado_apos_insercao(self):
+        self.exames_em_coleta.inserir(self.registros[0])
+
+        with open('backup_lista.bak', 'rb') as arquivo_backup:
+            backup = pickle.load(arquivo_backup)
+
+        self.assertEqual(str(backup[0]), str(self.registros[0]))
+
+    def test_backup_atualizado_apos_remocao(self):
+        self.exames_em_coleta.inserir(self.registros[0])
+        self.exames_em_coleta.inserir(self.registros[1])
+
+        self.exames_em_coleta.remover(self.registros[0].get_paciente().get_cpf())
+
+        with open('backup_lista.bak', 'rb') as arquivo_backup:
+            backup = pickle.load(arquivo_backup)
+
+        self.assertEqual(len(backup), 1)
+        self.assertEqual(str(backup[0]), str(self.registros[1]))
+
+class TestListaExamesColetados(unittest.TestCase):
     def setUp(self):
-        self.lista = ListaExamesRealizados()
+        self.exames_coletados = ExamesColetados()
+
         self.exames = [
             ExameLaboratorial("Hemograma", "Análise de células sanguíneas"),
             ExameLaboratorial("Colesterol Total", "Medição do colesterol no sangue"),
@@ -181,6 +245,7 @@ class TestListaExamesRealizados(unittest.TestCase):
             ExameLaboratorial("PCR", "Proteína C Reativa - marcador de inflamação"),
             ExameLaboratorial("Vitamina D", "Níveis de vitamina D no sangue")
         ]
+
         self.pacientes = [
             Paciente("123.456.789-00", "João Silva", "15/03/1985"),
             Paciente("234.567.890-11", "Maria Oliveira", "22/07/1990"),
@@ -203,6 +268,7 @@ class TestListaExamesRealizados(unittest.TestCase):
             Paciente("999.000.111-22", "Diego Araújo", "08/08/1986"),
             Paciente("000.111.222-33", "Larissa Cardoso", "27/02/2002")
         ]
+
         self.registros = [
             RegistroExameLaboratorial(self.exames[5], self.pacientes[1], '02/01/1903 19:30:00'),
             RegistroExameLaboratorial(self.exames[0], self.pacientes[12], '03/02/2023 08:15:00'),
@@ -221,27 +287,38 @@ class TestListaExamesRealizados(unittest.TestCase):
             os.remove('arquivo_historico.hist')
 
     def test_multipla_insercao_lista(self):
+        self.exames_coletados.inserir(self.registros[9])
+        self.exames_coletados.inserir(self.registros[1])
+        self.exames_coletados.inserir(self.registros[3])
         arquivo = open('arquivo_historico.hist', 'r')
-        self.lista.inserir(self.registros[9])
-        self.lista.inserir(self.registros[1])
-        self.lista.inserir(self.registros[3])
         self.assertEqual(str(self.registros[9]) + str(self.registros[1]) + str(self.registros[3]), arquivo.read())
         arquivo.close()
 
     def test_inserir_lista(self):
+        self.exames_coletados.inserir(self.registros[4])
         arquivo = open('arquivo_historico.hist', 'r')
-        self.lista.inserir(self.registros[4])
         self.assertEqual(str(self.registros[4]), arquivo.read())
         arquivo.close()
 
     def test_limpar_lista(self):
+        self.exames_coletados.inserir(self.registros[3])
+        self.exames_coletados.inserir(self.registros[5])
+        self.exames_coletados.inserir(self.registros[7])
+        self.exames_coletados.limpar()
         arquivo = open('arquivo_historico.hist', 'r')
-        self.lista.inserir(self.registros[3])
-        self.lista.inserir(self.registros[5])
-        self.lista.inserir(self.registros[7])
-        self.lista.limpar()
         self.assertEqual(os.path.getsize(arquivo.tell()), 0)
         arquivo.close()
+
+    def test_criacao_arquivo_historico(self):
+        self.exames_coletados.inserir(self.registros[0])
+        self.assertTrue(os.path.exists('arquivo_historico.hist'))
+
+    def test_arquivo_texto(self):
+        self.exames_coletados.inserir(self.registros[0])
+        with open('arquivo_historico.hist', 'r') as arquivo:
+            conteudo = arquivo.read()
+            self.assertTrue(isinstance(conteudo, str))
+
 
 if __name__ == '__main__':
     unittest.main()

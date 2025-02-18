@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ddf7e707-1ae6-438a-a5d1-077d66a82ff4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/exames_coletados.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/exames_coletados.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivo_historico.hist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup_lista.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cpf_invalido.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dado_invalido.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ultimo_id_registro.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ultimo_id_registro.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,6 +239,7 @@
       <workItem from="1739630085427" duration="3300000" />
       <workItem from="1739652502553" duration="4211000" />
       <workItem from="1739842711895" duration="64000" />
+      <workItem from="1739843985016" duration="789000" />
     </task>
     <servers />
   </component>
@@ -243,7 +248,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/riel$utils.coverage" NAME="utils Coverage Results" MODIFIED="1739390628489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/riel$.coverage" NAME=" Coverage Results" MODIFIED="1739321683641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739645767765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/riel$.coverage" NAME=" Coverage Results" MODIFIED="1739844760549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/riel$app.coverage" NAME="app Coverage Results" MODIFIED="1739844777255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
